@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attestation d'inscription</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Attestation d'inscription</h1>
+
+      <section class="card">
+        <h2>1) Charger le fichier Excel</h2>
+        <input type="file" id="excelFile" accept=".xlsx,.xls,.csv" />
+        <p class="muted">Colonnes attendues: nom, prenom, code_apogee, cin, cne (+ promotion/filiere optionnelles)</p>
+      </section>
+
+      <section class="card">
+        <h2>2) Rechercher un doctorant</h2>
+        <form id="searchForm">
+          <div class="row">
+            <label>Nom
+              <input type="text" id="nom" placeholder="Ex: El Idrissi" />
+            </label>
+            <label>Prénom
+              <input type="text" id="prenom" placeholder="Ex: Sara" />
+            </label>
+          </div>
+
+          <p class="center muted">OU</p>
+
+          <label>Code Apogée
+            <input type="text" id="codeApogee" placeholder="Ex: 12345678" />
+          </label>
+
+          <label>Niveau (optionnel)
+            <select id="niveau">
+              <option value="">Déduire depuis la promotion</option>
+              <option value="1ère année">1ère année</option>
+              <option value="2ème année">2ème année</option>
+              <option value="3ème année">3ème année</option>
+              <option value="4ème année ou plus">4ème année ou plus</option>
+            </select>
+          </label>
+
+          <button type="submit">Rechercher</button>
+        </form>
+        <p id="message" class="message"></p>
+      </section>
+
+      <section id="attestation" class="card hidden">
+        <div class="attestation-header">
+          <img src="assets/logo-um5-fmpr.svg" alt="Logo Université Mohamed V et FMPR" class="attestation-logo" />
+          <div class="attestation-org">
+            <p>Université Mohamed V</p>
+            <p>Faculte de medecine et pharmacie rabat</p>
+            <p>Service de la recherche et cooperation et partenariat</p>
+          </div>
+        </div>
+        <h2>Attestation d'inscription</h2>
+        <p>Nous soussignés attestons que :</p>
+        <ul id="infos"></ul>
+        <p>est régulièrement inscrit(e) en cycle doctoral pour l'année universitaire en cours.</p>
+        <p id="attestationDate" class="attestation-date"></p>
+        <p class="signature">Signature Directeur de CEDoc</p>
+        <button id="printBtn" type="button">Imprimer l'attestation</button>
+      </section>
+    </main>
+  </body>
+</html>

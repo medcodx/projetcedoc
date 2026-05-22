@@ -1,0 +1,30 @@
+:root { --bg:#f4f6fb; --card:#fff; --line:#e7ebf3; --text:#1e2430; --blue:#1e61d6; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:Arial,sans-serif; background:var(--bg); color:var(--text); }
+.container { max-width:900px; margin:2rem auto; padding:0 1rem; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1rem 1.2rem; margin-bottom:1rem; }
+.row { display:flex; gap:1rem; }
+label { display:block; width:100%; margin-bottom:0.8rem; }
+input, select { width:100%; margin-top:0.3rem; padding:0.65rem; border:1px solid #ccd5e5; border-radius:8px; }
+button { background:var(--blue); color:#fff; border:none; padding:0.7rem 1rem; border-radius:8px; cursor:pointer; }
+button:hover { opacity:0.95; }
+.center { text-align:center; }
+.muted { color:#5f6b80; }
+.message { min-height:1.2rem; font-weight:600; }
+.message.error { color:#b32727; }
+.message.success { color:#186539; }
+.hidden { display:none; }
+
+@media print {
+  #searchForm, #excelFile, #message, .card h2:first-child, .card .muted, #printBtn { display:none !important; }
+  body { background:#fff; }
+  .card { border:none; padding:0; margin:0; }
+}
+
+.attestation-date { margin-top:1rem; font-weight:600; text-align:right; }
+.signature { margin-top:2.5rem; text-align:right; font-weight:700; }
+
+.attestation-header { display:flex; align-items:center; gap:1rem; border-bottom:1px solid #dbe4f4; padding-bottom:0.8rem; margin-bottom:1rem; }
+.attestation-logo { width:240px; max-width:45%; height:auto; object-fit:contain; }
+.attestation-org p { margin:0.1rem 0; font-weight:700; line-height:1.3; }
+@media print { .attestation-header { border-bottom:none; } }
